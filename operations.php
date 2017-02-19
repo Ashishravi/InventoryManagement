@@ -10,9 +10,42 @@ include_once "layout_head.php";?>
 </form>        
 
 <script type="text/javascript" charset="utf-8">
+    var name = null;
+    function waitForMsg(){
+$.ajax({
+type: "GET",
+url: "api/read_all_orders.php",
+async: true,
+cache: false,
+success: function(data){
+    //alert(data);
+    //document.write(data);
+     document.getElementById("msgold").innerHTML =  JSON.stringify(data);;
+/*var json=eval('('+data+ ')');
+if (json['name'] !="") {
+//alert( json['msg'] );
+//Display message here
+$("#msgold").empty();
+$("#msgold").append(json['name'] +"<hr>").slideDown("slow");
+}
+
+name =json["name"];*/
+setTimeout("waitForMsg()",1000);
+},
+error: function(XMLHttpRequest,textStatus,errorThrown) {
+// alert("error: "+textStatus + " "+ errorThrown );
+setTimeout("waitForMsg()",15000);
+}
+});
+}
+
 </script>
 
+<input type="button" onclick="waitForMsg()" value="getresults">
 
+<H3> Server Results </H3>
+<hr />
+<div id="messages"><div id="msgold"></div></div>
 
 <?php
 
