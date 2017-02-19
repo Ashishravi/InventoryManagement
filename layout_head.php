@@ -12,6 +12,8 @@
     <link href="libs/css/bootstrap/dist/css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="libs/css/dropzone/dropzone.css" rel="stylesheet">
     <link href="libs/css/daterangepicker.css" rel="stylesheet">
+    <link href="libs/css/bootstrap3.3.7/dist/css/bootstrap.css" rel="stylesheet" media="screen">
+    <script src="libs/css/bootstrap3.3.7/dist/js/bootstrap.js"></script>
  
   
  
