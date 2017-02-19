@@ -86,11 +86,8 @@ class Order{
     
     public function readAll(){
         //select all data
-    $query = "SELECT p.id, p.name, p.description, p.price, c.name as category_name
-                FROM " . $this->table_name . " p
-                    LEFT JOIN categories c
-                        ON p.category_id=c.id
-                ORDER BY id DESC";
+    $query = "SELECT  name, description, price
+                FROM " . $this->table_name;
  
     $stmt = $this->conn->prepare($query);
     $stmt->execute();
