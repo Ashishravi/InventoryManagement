@@ -18,7 +18,10 @@ url: "api/read_all_orders.php",
 async: true,
 cache: false,
 success: function(data){
-var json=eval('('+data+ ')');
+    //alert(data);
+    //document.write(data);
+     document.getElementById("msgold").innerHTML =  JSON.stringify(data);;
+/*var json=eval('('+data+ ')');
 if (json['name'] !="") {
 //alert( json['msg'] );
 //Display message here
@@ -26,7 +29,7 @@ $("#msgold").empty();
 $("#msgold").append(json['name'] +"<hr>").slideDown("slow");
 }
 
-name =json["name"];
+name =json["name"];*/
 setTimeout("waitForMsg()",1000);
 },
 error: function(XMLHttpRequest,textStatus,errorThrown) {
@@ -35,13 +38,10 @@ setTimeout("waitForMsg()",15000);
 }
 });
 }
-$(document).ready(
-function()
-{
-waitForMsg();
-}); 
+
 </script>
 
+<input type="button" onclick="waitForMsg()" value="getresults">
 
 <H3> Server Results </H3>
 <hr />

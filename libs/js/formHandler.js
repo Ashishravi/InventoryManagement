@@ -16,12 +16,11 @@ error: function() {
 alert("Could not load data...");
 }
 });
+}
 
     
 function financeProcess() {
     
-var data = $('#new_order').serialize();
-
 // AJAX code to submit form.
 $.ajax({
 type: "POST",
@@ -35,8 +34,4 @@ error: function() {
 alert("Could not load data...");
 }
 });
-
-   
-    
-
 }
