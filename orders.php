@@ -5,7 +5,7 @@ include 'config/core.php';
 // include the head template
 include_once "layout_head.php";?>
 <div class="container">
-<form onsubmit="orderProcess()" id="new_order" method="post">
+<form action="api/create_order.php" id="new_order" method="post" enctype="multipart/form-data">
     <div class="container" align="center">
     <div class="form-group row">
   <label for="customer_id" class="bmd-label-floating col-xs-2 col-form-label">Customer ID</label>
@@ -75,6 +75,8 @@ include_once "layout_head.php";?>
   </div>
 </div>
 </div>
+    
+    <input type="file" name="workorder">
     <!--<input type="submit" value="submit">-->
     <button type="submit" class="btn btn-primary btn-raised">Submit</button>
 </form>        

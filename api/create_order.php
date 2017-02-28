@@ -23,6 +23,7 @@ if($_POST){
     $order->description = $_POST['description'];
     $order->type = $_POST['type'];
    // $order->orders = $_POST['orders'];
+    //$order->work_order = addslashes (file_get_contents($_FILES['workorder']['tmp_name']));
     $order->start_date = $_POST['start_date'];
     $order->expiry_date = $_POST['expiry_date'];
     $order->customer_id = $_POST['customer_id'];
