@@ -5,7 +5,7 @@ class Database{
     private $host = "localhost";
     private $db_name = "inventory";
     private $username = "root";
-    private $password = "";
+    private $password = "123456";
     public $conn;
  
     // get the database connection
