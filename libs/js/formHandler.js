@@ -12,8 +12,9 @@ cache: false,
 success: function(html) {
 alert(html);
 },
-error: function() {
-alert("Could not load data...");
+error: function(html) {
+//alert("Could not load data...");
+    alert(html);
 }
 });
 }

@@ -19,6 +19,9 @@ class Order{
     public $job_order_no;
     public $job_order_location;
     
+    public $workordername;
+    public $imageType;
+    
     public $work_order;
     public $security_letter;
     public $rental_payment;
@@ -33,7 +36,9 @@ class Order{
             
             // insert query
             $query = "INSERT INTO orders
-                SET name=:name, job_order_no=:job_order_no, category=:category, description=:description, type=:type, price=:price, start_date=:start_date, job_order_location=:job_order_location, customer_id=:customer_id, approved_planning='PENDING', financial_clearance='PENDING', timestamp=:created, expiry_date=:expiry
+                SET name=:name, job_order_no=:job_order_no, category=:category, description=:description, type=:type, price=:price, start_date=:start_date, job_order_location=:job_order_location, customer_id=:customer_id, approved_planning='PENDING', financial_clearance='PENDING',
+                
+                timestamp=:created, expiry_date=:expiry
                 ";
  
             // prepare query for execution
@@ -50,6 +55,7 @@ class Order{
             $type=htmlspecialchars(strip_tags($this->type));
             $start_date=htmlspecialchars(strip_tags($this->start_date));
             $expiry_date=htmlspecialchars(strip_tags($this->expiry_date));
+           // $work_order=tmlspecialchars(strip_tags($this->work_order));
 
             // bind the parameters
             $stmt->bindParam(':name', $name);
@@ -63,6 +69,7 @@ class Order{
             $stmt->bindParam(':start_date', $start_date);
             $stmt->bindParam(':customer_id', $customer_id);
             $stmt->bindParam(':expiry', $expiry_date);
+           //  $stmt->bindParam(':work_order', $work_order);
             
             // we need the created variable to know when the record was created
             // also, to comply with strict standards: only variables should be passed by reference

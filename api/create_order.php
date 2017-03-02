@@ -23,11 +23,17 @@ if($_POST){
     $order->description = $_POST['description'];
     $order->type = $_POST['type'];
    // $order->orders = $_POST['orders'];
+    //$order->work_order = addslashes (file_get_contents($_FILES['workorder']['tmp_name']));
     $order->start_date = $_POST['start_date'];
     $order->expiry_date = $_POST['expiry_date'];
     $order->customer_id = $_POST['customer_id'];
     $order->job_order_no = $_POST['job_order_no'];
     $order->job_order_location = $_POST['job_order_location'];
+    
+    $order->workordername = $_FILES["image"]["name"];
+    $order->work_order = file_get_contents($_FILES["image"]["tmp_name"]);
+    $order->imageType = $_FILES["image"]["type"];
+
     
 /*    $order->work_order = $_POST['work_order'];
     $order->security_letter = $_POST['security_letter'];
