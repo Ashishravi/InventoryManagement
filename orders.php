@@ -78,7 +78,7 @@ include_once "layout_head.php";?>
     
     <input type="file" name="workorder">
     <!--<input type="submit" value="submit">-->
-    <button type="submit" class="btn btn-primary btn-raised">Submit</button>
+    <button type="submit" name="submit" class="btn btn-primary btn-raised">Submit</button>
 </form>        
     </div>
 

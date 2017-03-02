@@ -19,6 +19,9 @@ class Order{
     public $job_order_no;
     public $job_order_location;
     
+    public $workordername;
+    public $imageType;
+    
     public $work_order;
     public $security_letter;
     public $rental_payment;
