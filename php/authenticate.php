@@ -45,7 +45,7 @@ if($stmt->rowCount() == 0){
 		session_write_close();
 
 		if( $_SESSION['sess_username'] == "orders"){
-			header('Location: ../orders.php');
+			header('Location: ../orders.html.php');
 		}elseif( $_SESSION['sess_username'] == "finance"){
             header('Location: ../finance.php');
         }
