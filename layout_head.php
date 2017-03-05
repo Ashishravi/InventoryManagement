@@ -37,6 +37,12 @@
     .m-r-1em{
         margin-right:1em;
     }
+    #ActiveOrders{
+            display:none;
+    }
+    .panel-group{
+            width:300px;
+    }
     </style>
  
 </head>
