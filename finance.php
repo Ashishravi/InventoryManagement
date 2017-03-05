@@ -55,6 +55,7 @@ success: function(data){
                 htmlText += '<div class="div-container">';
                 htmlText += '<p class="p-name"> Name: ' + data[key].name + '</p>';
                 htmlText += '<p class="p-desc"> Description: ' + data[key].description + '</p>';
+               htmlText += '<p class="p-desc"> Price: ' + data[key].price + '</p>';
                 htmlText += '</div>';
            }
             $('#message1').replaceWith(htmlText);
@@ -82,12 +83,20 @@ setTimeout("waitForMsg()",15000);
 
                         var htmlText = '';
 
-                       for ( var key in data){
+                       for ( var key in data ){
                             htmlText += '<div class="div-container"><div class="panel-group"><div class="panel panel-info"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" href="#' + data[key].name + '"><b>' + data[key].name + '</b></a></h4</div>';
                             htmlText += '<div id="' + data[key].name + '" class="panel-collapse collapse panel-body ">';
                             htmlText += '<p class="p-name"> Name: ' + data[key].name + '</p>';
                             htmlText += '<p class="p-desc"> Description: ' + data[key].description + '</p>';
-                            htmlText += '</div></div></div></div>';
+                           htmlText += '<p class="p-desc"> Price: ' + data[key].price + '</p>';
+                           htmlText += '<p class="p-desc"> Category: ' + data[key].category + '</p>';
+                           htmlText += '<p class="p-desc"> Type: ' + data[key].type + '</p>';
+                           htmlText += '<p class="p-desc"> Start Date: ' + data[key].start_date + '</p>';
+                           htmlText += '<p class="p-desc"> Expity Date: ' + data[key].expiry_date + '</p>';
+                           htmlText += '<p class="p-desc"> Location: ' + data[key].job_order_location + '</p>';
+                            htmlText += '<p> APPROVE</p><form class="form-horizontal" role="form" id="formfield"  method="POST" action="update_order.php" >';
+                            htmlText += '<button type="submit" name="approve_btn" class="btn btn-success">Yes</button><button type="submit" name="reval_btn" class="btn btn-danger">No</button></form></div></div></div></div>';
+                            
                        }
 
                         $('#message1').replaceWith(htmlText);
@@ -118,8 +127,14 @@ setTimeout("waitForMsg()",15000);
                             htmlText += '<div id="active' + data[key].name + '" class="panel-collapse collapse panel-body">';
                             htmlText += '<p class="p-name"> Name: ' + data[key].name + '</p>';
                             htmlText += '<p class="p-desc"> Description: ' + data[key].description + '</p>';
-                            htmlText += '<p> APPROVE</p><form class="form-horizontal" role="form" id="formfield"  method="POST" action="update_order.php" >';
-                            htmlText += '<button type="submit" name="approve_btn" class="btn btn-success">Yes</button><button type="submit" name="reval_btn" class="btn btn-danger">No</button></form></div></div></div></div>';
+                            htmlText += '<p class="p-desc"> Price: ' + data[key].price + '</p>';
+                           htmlText += '<p class="p-desc"> Category: ' + data[key].category + '</p>';
+                           htmlText += '<p class="p-desc"> Type: ' + data[key].type + '</p>';
+                           htmlText += '<p class="p-desc"> Start Date: ' + data[key].start_date + '</p>';
+                           htmlText += '<p class="p-desc"> Expity Date: ' + data[key].expiry_date + '</p>';
+                           htmlText += '<p class="p-desc"> Location: ' + data[key].job_order_location + '</p>';
+                           
+                           htmlText += '</div></div></div></div>';
                            
                        }
                         $('#message2').replaceWith(htmlText);
