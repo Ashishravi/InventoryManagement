@@ -26,14 +26,14 @@ include_once "layout_head.php";?>
 
 <H3> New Orders </H3>
 <hr />
-<div id="messages"></div>
+<div id="message1"></div>
 </div>
 
 <div id="ActiveOrders">
 
 <H3> Active Orders </H3>
 <hr />
-<div id="messages"></div>
+<div id="message2"></div>
 </div>
 
 
@@ -52,13 +52,12 @@ success: function(data){
             var htmlText = '';
 
            for ( var key in data){
-                htmlText += '<div class="div-conatiner">';
+                htmlText += '<div class="div-container">';
                 htmlText += '<p class="p-name"> Name: ' + data[key].name + '</p>';
                 htmlText += '<p class="p-desc"> Description: ' + data[key].description + '</p>';
                 htmlText += '</div>';
            }
-
-            $('#messages').replaceWith(htmlText);
+            $('#message1').replaceWith(htmlText);
     
             
 setTimeout("waitForMsg()",1000);
@@ -84,33 +83,68 @@ setTimeout("waitForMsg()",15000);
                         var htmlText = '';
 
                        for ( var key in data){
-                            htmlText += '<div class="div-conatiner">';
+                            htmlText += '<div class="div-container"><div class="panel-group"><div class="panel panel-info"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" href="#' + data[key].name + '"><b>' + data[key].name + '</b></a></h4</div>';
+                            htmlText += '<div id="' + data[key].name + '" class="panel-collapse collapse panel-body ">';
                             htmlText += '<p class="p-name"> Name: ' + data[key].name + '</p>';
                             htmlText += '<p class="p-desc"> Description: ' + data[key].description + '</p>';
-                            htmlText += '</div>';
+                            htmlText += '</div></div></div></div>';
                        }
 
-                        $('#messages').replaceWith(htmlText);
+                        $('#message1').replaceWith(htmlText);
 
 
-            setTimeout("showNewOrder()",1000);
+            setTimeout("getNewOrder()",1000);
             },
             error: function(XMLHttpRequest,textStatus,errorThrown) {
-            setTimeout("showNewOrder()",15000);
+            setTimeout("getNewOrder()",15000);
             }
                     });
     }
     
     function getActiveOrder(){
-        
+        $.ajax({
+            type: "GET",
+            url: "api/read_all_orders.php",
+            async: true,
+            cache: false,
+            dataType: "json",
+            success: function(data){
+
+                        var htmlText = '';
+
+                       for ( var key in data){
+                           
+                            htmlText += '<div class="div-container"><div class="panel-group"><div class="panel panel-info"><div class="panel-heading"><h4 class="panel-title"><a data-toggle="collapse" href="#active' + data[key].name + '"><b>' + data[key].name + '</b></a></h4</div>';
+                            htmlText += '<div id="active' + data[key].name + '" class="panel-collapse collapse panel-body">';
+                            htmlText += '<p class="p-name"> Name: ' + data[key].name + '</p>';
+                            htmlText += '<p class="p-desc"> Description: ' + data[key].description + '</p>';
+                            htmlText += '<p> APPROVE</p><form class="form-horizontal" role="form" id="formfield"  method="POST" action="update_order.php" >';
+                            htmlText += '<button type="submit" name="approve_btn" class="btn btn-success">Yes</button><button type="submit" name="reval_btn" class="btn btn-danger">No</button></form></div></div></div></div>';
+                           
+                       }
+                        $('#message2').replaceWith(htmlText);
+
+
+            setTimeout("getActiveOrder()",1000);
+            },
+            error: function(XMLHttpRequest,textStatus,errorThrown) {
+            setTimeout("getActiveOrder()",15000);
+            }
+                    });
     }
     
     function showNewOrder(){
         //make new order div visible and make other div invisible and call getNew Order
+        document.getElementById("NewOrders").style.display= "inline-block";
+        document.getElementById("ActiveOrders").style.display= "none";
+        getNewOrder();
+        
     }
     
     function showActiveOrder(){
-        
+        document.getElementById("ActiveOrders").style.display= "inline-block";
+        document.getElementById("NewOrders").style.display= "none";
+        getActiveOrder();
     }
 </script>
 
