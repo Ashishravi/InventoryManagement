@@ -21,7 +21,7 @@ include_once '../objects/order.php';
     $order->job_order_no = $_POST['job_order_no'];
     $order->job_order_location = $_POST['job_order_location'];
 
-$file=$_FILES['work_order'];
+$file=$_FILES['filefield'];
 $upload_directory='../uploads/';
 $ext_str = "gif,jpg,jpeg,mp3,tiff,bmp,doc,docx,ppt,pptx,txt,pdf";
 $allowed_extensions=explode(',',$ext_str);
@@ -45,9 +45,6 @@ $path=md5(microtime()).'.'.$ext;
 if(move_uploaded_file($file['tmp_name'],$upload_directory.$path)){
 
     $order->work_order = $path;
-    $order->security_letter = $path;
-    $order->rental_payment = $path;
-    $order->security_negotiable = $path;
 
 }
 

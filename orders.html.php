@@ -76,9 +76,20 @@ include_once "layout_head.php";?>
 </div>
 </div>
     
-    <input type="file" name="workorder">
+    
+    <label>Upload Work Order<input id="work_order" type="file" name="work_order" /></label>
+    
+     <label>Upload security_letter<input id="security_letter" type="file" name="work_order" /></label>
+    
+     <label>Upload rental_payment<input id="rental_payment" type="file" name="work_order" /></label>
+    
+     <label>Upload security_negotiable<input id="security_negotiable" type="file" name="work_order" /></label>
+    
+    
     <!--<input type="submit" value="submit">-->
     <button type="submit" name="submit" class="btn btn-primary btn-raised">Submit</button>
+    
+    <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
 </form>        
     </div>
 
